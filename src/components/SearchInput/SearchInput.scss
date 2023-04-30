@@ -1,24 +1,25 @@
 .search-wrapper {
-  -webkit-box-shadow: 0px 1px 5px 0px rgba(133, 133, 133, 1);
-  -moz-box-shadow: 0px 1px 5px 0px rgba(133, 133, 133, 1);
-  box-shadow: 0px 1px 5px 0px rgba(133, 133, 133, 1);
+  -webkit-box-shadow: var(---webkit-box-shadow);
+  -moz-box-shadow: var(---moz-box-shadow);
+  box-shadow: var(--box-shadow);
   border-radius: 5px;
   margin-top: 30px;
   padding: 15px;
   display: flex;
   align-items: center;
   gap: 20px;
+  background-color: var(--color-background);
 
   & &__icon {
     height: 20px;
-    stroke: var(--light-mode-input-text);
+    stroke: var(--color-input-text);
     margin-left: 10px;
     cursor: pointer;
   }
 
   & &__input {
     border: none;
-    color: var(--light-mode-input-text);
+    color: var(--color-input-text);
     font-weight: var(--font-weight-light);
     background-color: transparent;
     width: 100%;

@@ -1,4 +1,10 @@
-.container {
+.country-container {
+  padding: 0 30px 40px;
+
+  & .return {
+    height: 0;
+  }
+
   & .country-details {
     margin-top: 60px;
 

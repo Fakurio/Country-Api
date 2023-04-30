@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./SearchInput.scss";
+import { ThemeContext } from "../../utils/ThemeProvider";
 
 interface Props {
   handleSearchQueryChange: (text: string) => void;
@@ -10,8 +11,13 @@ const SearchInput: React.FC<Props> = ({
   handleSearchQueryChange,
   searchQuery,
 }) => {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className="search-wrapper">
+    <div
+      className="search-wrapper"
+      data-theme={`${theme === "dark" ? "dark" : "light"}`}
+    >
       <label htmlFor="search-input">
         <svg
           xmlns="http://www.w3.org/2000/svg"

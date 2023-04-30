@@ -4,9 +4,10 @@ import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { CountryData } from "../../hooks/useFetch";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../utils/ThemeProvider";
 
 type BorderCountry = {
   name: string;
@@ -18,6 +19,7 @@ const CountryDetailsPage: React.FC = () => {
   const { countriesData } = useFetch();
   const [currentCountry, setCurrentCountry] = useState<CountryData>();
   const [borderCountries, setBorderCountries] = useState<BorderCountry[]>([]);
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     setCurrentCountry(
@@ -42,8 +44,11 @@ const CountryDetailsPage: React.FC = () => {
   return (
     <>
       <Header />
-      <div className="container">
-        <Link to="/">
+      <div
+        className="country-container"
+        data-theme={`${theme === "dark" ? "dark" : "light"}`}
+      >
+        <Link to="/" className="return">
           <Button text="Back" className="btn--return" />
         </Link>
         <main className="country-details">

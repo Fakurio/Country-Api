@@ -1,6 +1,7 @@
 import React from "react";
 import "./FilterInput.scss";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ThemeContext } from "../../utils/ThemeProvider";
 
 const initialState = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
@@ -15,9 +16,13 @@ const FilterInput: React.FC<Props> = ({
 }) => {
   const [isHidden, setIsHidden] = useState(true);
   const [filterOptions, setFilterOptions] = useState(initialState);
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <div className="filter-container">
+    <div
+      className="filter-container"
+      data-theme={`${theme === "dark" ? "dark" : "light"}`}
+    >
       <div className="filter-input" onClick={() => setIsHidden(!isHidden)}>
         {currentRegion || "Filter by Region"}
       </div>

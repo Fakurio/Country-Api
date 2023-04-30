@@ -11,7 +11,10 @@ interface Props {
 const Button: React.FC<Props> = ({ text, className }) => {
   const { theme } = useContext(ThemeContext);
   return (
-    <button className={`btn ${className}`}>
+    <button
+      className={`btn ${className}`}
+      data-theme={`${theme === "dark" ? "dark" : "light"}`}
+    >
       {className === "btn--return" && (
         <img src={returnArrow} className="return-arrow" />
       )}

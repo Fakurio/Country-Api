@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./CountryCard.scss";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../utils/ThemeProvider";
 
 interface Props {
   flag: string;
@@ -23,8 +24,13 @@ const CountryCard: React.FC<Props> = ({
   currentQuery,
   currentRegion,
 }) => {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className="country-card">
+    <div
+      className="country-card"
+      data-theme={`${theme === "dark" ? "dark" : "light"}`}
+    >
       <img className="country-card__flag" src={flag} />
       <div className="country-card__details">
         <Link

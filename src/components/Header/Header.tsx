@@ -6,7 +6,10 @@ const Header: React.FC = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <header className="header">
+    <header
+      className="header"
+      data-theme={`${theme === "dark" ? "dark" : "light"}`}
+    >
       <h1 className="header__title">Where in the world?</h1>
       <button className="header__theme-switch" onClick={toggleTheme}>
         <svg
@@ -16,6 +19,7 @@ const Header: React.FC = () => {
           strokeWidth={1.5}
           stroke="currentColor"
           className="theme-switch__icon"
+          data-theme={`${theme === "dark" ? "dark" : "light"}`}
         >
           <path
             strokeLinecap="round"
