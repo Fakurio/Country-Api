@@ -52,7 +52,7 @@ const CountryDetailsPage: React.FC = () => {
           <Button text="Back" className="btn--return" />
         </Link>
         <main className="country-details">
-          <img className="country-details__flag" src={currentCountry?.flag} />
+          <div className="country-details__flag">{currentCountry?.flag}</div>
           <div className="country-details-container">
             <h2 className="country-details__name">{currentCountry?.name}</h2>
             <div className="flex-container">

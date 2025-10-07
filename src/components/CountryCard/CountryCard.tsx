@@ -31,7 +31,8 @@ const CountryCard: React.FC<Props> = ({
       className="country-card"
       data-theme={`${theme === "dark" ? "dark" : "light"}`}
     >
-      <img className="country-card__flag" src={flag} />
+      {/* <img className="country-card__flag" src={flag} /> */}
+      <div className="country-card__flag">{flag}</div>
       <div className="country-card__details">
         <Link
           to={`/${code}`}
