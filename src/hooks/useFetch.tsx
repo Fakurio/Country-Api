@@ -9,9 +9,7 @@ type ResponseData = {
       };
     };
   };
-  flags: {
-    png: string;
-  };
+  flags: { svg: string; png: string };
   cca3: string;
   population: number;
   region: string;
@@ -83,7 +81,9 @@ const useFetch = () => {
     }
     setIsLoading(true);
     setIsError(false);
-    fetch("https://restcountries.com/v3.1/all")
+    fetch(
+      "https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital,subregion,currencies,languages,borders,cca3"
+    )
       .then((response) => response.json())
       .then((data) => {
         const newState: CountryData[] = [];
@@ -102,7 +102,7 @@ const useFetch = () => {
             borders,
           } = country;
           newState.push({
-            flag: flags.png,
+            flag: flags.png || flags.svg,
             population: convertPopulation(population),
             region: region,
             capital: capital ? capital[0] : undefined,
