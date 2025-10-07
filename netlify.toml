@@ -7,7 +7,8 @@
     Content-Security-Policy = """
       default-src 'self'; 
       script-src 'self'; 
-      style-src 'self'; 
-      img-src 'self' data: https://flagcdn.com; 
-      connect-src 'self' https://restcountries.com;'
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+      img-src 'self' data: https://flagcdn.com https://upload.wikimedia.org; 
+      connect-src 'self' https://restcountries.com;
+      font-src 'self' https://fonts.gstatic.com;
     """
